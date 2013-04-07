@@ -1,0 +1,2 @@
+module PearlOfGreatPriceHelper
+end

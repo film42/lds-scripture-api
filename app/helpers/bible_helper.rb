@@ -1,0 +1,2 @@
+module BibleHelper
+end
