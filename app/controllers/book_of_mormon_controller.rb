@@ -6,18 +6,21 @@ class BookOfMormonController < ApplicationController
   end
 
   def book
-    @book = Book.get_book(params[:book])
+    volume = Volume.get_volume("bm")
+    @book = Book.get_book(volume, params[:book])
     render 'book_of_mormon/book.json'
   end
 
   def chapter
-    book = Book.get_book(params[:book])
+    volume = Volume.get_volume("bm")
+    book = Book.get_book(volume, params[:book])
     @verses = Book.get_verses(book, params[:chapter])
     render 'book_of_mormon/chapter.json'
   end
 
   def verses
-    book = Book.get_book(params[:book])
+    volume = Volume.get_volume("bm")
+    book = Book.get_book(volume, params[:book])
     verses = Book.get_verses(book, params[:chapter])
     @verses = Verse.get_verses(verses, params[:verses])
     render 'book_of_mormon/verses.json'

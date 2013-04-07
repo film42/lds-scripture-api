@@ -6,7 +6,7 @@ attributes :volume_title => :title,
   :num_chapters => :chpaters, 
   :num_verses => :verses
 
-child @books do 
+child :books do 
   attributes :book_title => :title, 
     :book_title_long => :title_long,  
     :book_title_short => :title_short, 

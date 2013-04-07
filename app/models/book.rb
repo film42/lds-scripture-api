@@ -12,8 +12,8 @@ class Book < ActiveRecord::Base
     book = Book.where("volume_id = ?", volume_id)
   end
 
-  def self.get_book(slug)
-    book = Book.where("lds_org = ?", slug).first
+  def self.get_book(volume, slug)
+    book = volume.books.where("lds_org = ?", slug).first
   end
 
   def self.get_verses(book, chapter)

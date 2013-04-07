@@ -19,15 +19,17 @@ class BibleController < ApplicationController
     testament = params[:testament]
     return if testament != "ot" and testament != "nt"
 
-    @volume = Volume.get_volume(params[:testament])
-    render 'bible/testament.json'
+    volume = Volume.get_volume(params[:testament])
+    @book = Book.get_book(volume, params[:book])
+    render 'bible/book.json'
   end
 
   def chapter
     testament = params[:testament]
     return if testament != "ot" and testament != "nt"
 
-    book = Book.get_book(params[:book])
+    volume = Volume.get_volume(params[:testament])
+    book = Book.get_book(volume, params[:book])
     @verses = Book.get_verses(book, params[:chapter])
     render 'bible/chapter.json'
   end
@@ -36,7 +38,8 @@ class BibleController < ApplicationController
     testament = params[:testament]
     return if testament != "ot" and testament != "nt"
 
-    book = Book.get_book(params[:book])
+    volume = Volume.get_volume(params[:testament])
+    book = Book.get_book(volume, params[:book])
     verses = Book.get_verses(book, params[:chapter])
     @verses = Verse.get_verses(verses, params[:verses])
     render 'bible/verses.json'
