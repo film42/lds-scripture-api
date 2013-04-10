@@ -27,6 +27,8 @@ LdsScriptureApi::Application.routes.draw do
   match 'bible/:testament/:book/:chapter' => 'bible#chapter'
   match 'bible/:testament/:book/:chapter/:verses' => 'bible#verses'
 
+  match 'search' => 'search#search'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
