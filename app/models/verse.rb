@@ -17,7 +17,7 @@ class Verse < ActiveRecord::Base
 
   def self.search(query)
     #return Verse.find_verse(query)
-    return Verse.where('verseText @@ ?', query)
+    return Verse.where('verseText @@ plainto_tsquery(\'english\', ?)', query)
   end
 
 end
