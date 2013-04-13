@@ -7,6 +7,8 @@ LdsScriptureApi::Application.routes.draw do
 
   #resources :books
 
+  root :to => 'documentation#index'  
+
   match 'bofm' => 'book_of_mormon#index'
   match 'bofm/:book' => 'book_of_mormon#book'
   match 'bofm/:book/:chapter' => 'book_of_mormon#chapter'
