@@ -1,8 +1,7 @@
 class Verse < ActiveRecord::Base
   include PgSearch
-  pg_search_scope :find_verse, :against => [:verse_scripture]
+  pg_search_scope :find_verse, :against => [:versetext], :using => [:tsearch]
 
-  set_primary_key "id"
   # attr_accessible :title, :body
   belongs_to :book
   belongs_to :volume
@@ -17,7 +16,8 @@ class Verse < ActiveRecord::Base
   end
 
   def self.search(query)
-    return Verse.find_verse(query)
+    #return Verse.find_verse(query)
+    return Verse.where('verseText @@ ?', query)
   end
 
 end

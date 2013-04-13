@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20130410183504) do
     t.text    "verse_scripture"
     t.string  "verse_title",       :limit => 30
     t.string  "verse_title_short", :limit => 14
+    t.tsvecor "verseText"
   end
 
   add_index "verses", ["book_id"], :name => "index_verses_on_book_id"

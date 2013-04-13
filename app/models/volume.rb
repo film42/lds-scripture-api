@@ -1,5 +1,4 @@
 class Volume < ActiveRecord::Base
-  set_primary_key "id"
   # attr_accessible :title, :body
   has_many :books
   has_many :verses
