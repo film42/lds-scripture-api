@@ -18,6 +18,9 @@ class Volume < ActiveRecord::Base
 
   def self.get_verses(volume, chapter)
     verses = volume.verses.where('chapter = ?', chapter)
+    verses.sort! do |x, y|
+      x.id <=> y.id
+    end
     verses.each_with_index do |verse, index|
       verse[:verse] = index + 1
     end
