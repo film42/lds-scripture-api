@@ -2,6 +2,7 @@ A cool way of using the LDS Scriptures through a standard RESTful interface.
 
 Note: It would be nice to rename the database even better, I'm just not really sure how I want to do that just yet. Afterall, it might just be easier to live out of the schema, but 'id' is a manditory fix.
 
+Current version of the API can be found at: http://scriptures.desh.es/
 
 -------------------------------------
 
